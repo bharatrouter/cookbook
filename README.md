@@ -57,6 +57,7 @@ export BHARATROUTER_MODEL=<any-model-id-from-the-catalog>
 | 08 | [Wire an agent (MCP)](recipes/08-mcp-agent) | Connect any MCP agent to one governed endpoint | [↗](https://bharatrouter.com/cookbook/mcp-agent) |
 | 09 | [Stream tokens + exact ₹ cost](recipes/09-streaming-cost) | Streaming with per-call INR usage accounting | [↗](https://bharatrouter.com/cookbook/streaming-usage) |
 | 10 | [Sangam consensus](recipes/10-sangam-consensus) | A panel answers in parallel; a synthesizer reconciles one best answer | [↗](https://bharatrouter.com/cookbook/sangam-consensus) |
+| 11 | [Use Claude through BharatRouter](recipes/11-use-claude) | Call Claude on the platform key or via BYOK; wire Claude Code in as an MCP agent | [↗](https://bharatrouter.com/cookbook/claude-with-bharatrouter) |
 
 ## BharatRouter-specific request fields
 
