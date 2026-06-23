@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "bharatrouter": {
+      "type": "http",
+      "url": "https://api.bharatrouter.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${BHARATROUTER_API_KEY}"
+      }
+    }
+  }
+}
