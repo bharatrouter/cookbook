@@ -2,7 +2,7 @@
   <img src="assets/logo.svg" alt="BharatRouter" width="72" height="72" />
   <h1>BharatRouter Cookbook</h1>
   <p><strong>Runnable recipes for India's AI gateway.</strong><br/>
-  One OpenAI-compatible API over many models — with enforceable India data-residency, INR billing, and price / latency / uptime routing across providers, neutrally.</p>
+  One OpenAI-compatible API over many models — with enforceable India data-residency, INR billing, and price / latency / uptime routing across providers.</p>
 
   <a href="https://bharatrouter.com">Website</a> ·
   <a href="https://bharatrouter.com/cookbook">Cookbook (web)</a> ·
