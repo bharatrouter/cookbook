@@ -1,0 +1,162 @@
+{
+  "frontier": [
+    {
+      "leg": "opus",
+      "label": "Claude Opus 4.8",
+      "acc": 100.0,
+      "acc_std": 100.0,
+      "acc_hard": 100.0,
+      "lat": 2.76,
+      "in": 62,
+      "out": 150,
+      "inr": 0.39,
+      "usd": 0.0041,
+      "errors": 0
+    },
+    {
+      "leg": "gpt-5.5",
+      "label": "GPT-5.5",
+      "acc": 100.0,
+      "acc_std": 100.0,
+      "acc_hard": 100.0,
+      "lat": 3.26,
+      "in": 41,
+      "out": 144,
+      "inr": 0.434,
+      "usd": 0.0045,
+      "errors": 0
+    },
+    {
+      "leg": "glm-4.6",
+      "label": "GLM-4.6 (single)",
+      "acc": 99.3,
+      "acc_std": 98.8,
+      "acc_hard": 100.0,
+      "lat": 19.86,
+      "in": 40,
+      "out": 807,
+      "inr": 0.136,
+      "usd": 0.0014,
+      "errors": 0
+    },
+    {
+      "leg": "bharatrouter/glm-sangam",
+      "label": "GLM-Sangam",
+      "acc": 97.1,
+      "acc_std": 97.5,
+      "acc_hard": 96.7,
+      "lat": 6.2,
+      "in": 1031,
+      "out": 509,
+      "inr": 0.167,
+      "usd": 0.0017,
+      "errors": 0
+    }
+  ],
+  "budget": [
+    {
+      "leg": "sonnet",
+      "label": "Claude Sonnet 4.6",
+      "acc": 100.0,
+      "acc_std": 100.0,
+      "acc_hard": 100.0,
+      "lat": 4.02,
+      "in": 49,
+      "out": 208,
+      "inr": 0.314,
+      "usd": 0.0033,
+      "errors": 0
+    },
+    {
+      "leg": "haiku",
+      "label": "Claude Haiku 4.5",
+      "acc": 79.3,
+      "acc_std": 97.5,
+      "acc_hard": 55.0,
+      "lat": 3.51,
+      "in": 49,
+      "out": 464,
+      "inr": 0.227,
+      "usd": 0.0024,
+      "errors": 0
+    },
+    {
+      "leg": "gpt-5.4-mini",
+      "label": "GPT-5.4-mini",
+      "acc": 100.0,
+      "acc_std": 100.0,
+      "acc_hard": 100.0,
+      "lat": 1.42,
+      "in": 41,
+      "out": 115,
+      "inr": 0.053,
+      "usd": 0.0005,
+      "errors": 0
+    },
+    {
+      "leg": "gpt-5.4-nano",
+      "label": "GPT-5.4-nano",
+      "acc": 100.0,
+      "acc_std": 100.0,
+      "acc_hard": 100.0,
+      "lat": 2.14,
+      "in": 41,
+      "out": 146,
+      "inr": 0.018,
+      "usd": 0.0002,
+      "errors": 0
+    },
+    {
+      "leg": "glm-4.5-air",
+      "label": "GLM-4.5-air",
+      "acc": 96.4,
+      "acc_std": 100.0,
+      "acc_hard": 91.7,
+      "lat": 16.69,
+      "in": 39,
+      "out": 1152,
+      "inr": 0.095,
+      "usd": 0.001,
+      "errors": 3
+    },
+    {
+      "leg": "glm-4.7-flash",
+      "label": "GLM-4.7-flash",
+      "acc": 99.3,
+      "acc_std": 100.0,
+      "acc_hard": 98.3,
+      "lat": 17.78,
+      "in": 40,
+      "out": 1273,
+      "inr": 0.049,
+      "usd": 0.0005,
+      "errors": 0
+    },
+    {
+      "leg": "bharatrouter/open-sangam",
+      "label": "Open-Sangam",
+      "acc": 93.6,
+      "acc_std": 98.8,
+      "acc_hard": 86.7,
+      "lat": 8.27,
+      "in": 1479,
+      "out": 598,
+      "inr": 0.032,
+      "usd": 0.0003,
+      "errors": 0
+    },
+    {
+      "leg": "bharatrouter/auto",
+      "label": "Auto (adaptive)",
+      "acc": 92.1,
+      "acc_std": 98.8,
+      "acc_hard": 83.3,
+      "lat": 12.0,
+      "in": 3234,
+      "out": 966,
+      "inr": 0.056,
+      "usd": 0.0006,
+      "errors": 0
+    }
+  ]
+}
