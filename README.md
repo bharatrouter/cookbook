@@ -58,6 +58,7 @@ export BHARATROUTER_MODEL=<any-model-id-from-the-catalog>
 | 09 | [Stream tokens + exact ₹ cost](recipes/09-streaming-cost) | Streaming with per-call INR usage accounting | [↗](https://bharatrouter.com/cookbook/streaming-usage) |
 | 10 | [Sangam consensus](recipes/10-sangam-consensus) | A panel answers in parallel; a synthesizer reconciles one best answer | [↗](https://bharatrouter.com/cookbook/sangam-consensus) |
 | 11 | [Use Claude through BharatRouter](recipes/11-use-claude) | Call Claude on the platform key or via BYOK; wire Claude Code in as an MCP agent | [↗](https://bharatrouter.com/cookbook/claude-with-bharatrouter) |
+| 12 | [Run a coding agent on GLM (one command)](recipes/12-glm-coding-agent) | One-command OpenCode + GLM-4.6 install — governed, metered, with a first query on launch | [↗](https://bharatrouter.com/blog/zero-to-glm) |
 
 ## BharatRouter-specific request fields
 
