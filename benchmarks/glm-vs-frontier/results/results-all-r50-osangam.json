@@ -1,0 +1,128 @@
+{
+  "bharatrouter/open-sangam": {
+    "taskset": "all",
+    "repeats": 50,
+    "n_tasks": 14,
+    "tot_pass": 695,
+    "tot_runs": 700,
+    "overall_pass_rate": 0.993,
+    "errors": 0,
+    "mean_in_per_task": 8208,
+    "mean_out_per_task": 4533,
+    "mean_lat_per_task": 10.99,
+    "tasks": {
+      "is_prime": {
+        "runs": 50,
+        "passes": 50,
+        "pass_rate": 1.0,
+        "mean_in": 7594,
+        "mean_out": 4006,
+        "mean_lat": 9.08
+      },
+      "fib": {
+        "runs": 50,
+        "passes": 50,
+        "pass_rate": 1.0,
+        "mean_in": 6074,
+        "mean_out": 3408,
+        "mean_lat": 7.52
+      },
+      "reverse_words": {
+        "runs": 50,
+        "passes": 50,
+        "pass_rate": 1.0,
+        "mean_in": 5530,
+        "mean_out": 2777,
+        "mean_lat": 7.37
+      },
+      "is_anagram": {
+        "runs": 50,
+        "passes": 50,
+        "pass_rate": 1.0,
+        "mean_in": 4276,
+        "mean_out": 2200,
+        "mean_lat": 5.83
+      },
+      "binary_search": {
+        "runs": 50,
+        "passes": 50,
+        "pass_rate": 1.0,
+        "mean_in": 4361,
+        "mean_out": 2267,
+        "mean_lat": 5.0
+      },
+      "roman_to_int": {
+        "runs": 50,
+        "passes": 50,
+        "pass_rate": 1.0,
+        "mean_in": 9198,
+        "mean_out": 5169,
+        "mean_lat": 11.5
+      },
+      "lcp": {
+        "runs": 50,
+        "passes": 50,
+        "pass_rate": 1.0,
+        "mean_in": 10042,
+        "mean_out": 5943,
+        "mean_lat": 15.05
+      },
+      "valid_parentheses": {
+        "runs": 50,
+        "passes": 50,
+        "pass_rate": 1.0,
+        "mean_in": 7971,
+        "mean_out": 4330,
+        "mean_lat": 11.54
+      },
+      "edit_distance": {
+        "runs": 50,
+        "passes": 50,
+        "pass_rate": 1.0,
+        "mean_in": 5946,
+        "mean_out": 3276,
+        "mean_lat": 6.69
+      },
+      "coin_change": {
+        "runs": 50,
+        "passes": 50,
+        "pass_rate": 1.0,
+        "mean_in": 9831,
+        "mean_out": 5276,
+        "mean_lat": 12.94
+      },
+      "trap": {
+        "runs": 50,
+        "passes": 49,
+        "pass_rate": 0.98,
+        "mean_in": 10937,
+        "mean_out": 6424,
+        "mean_lat": 14.88
+      },
+      "word_break": {
+        "runs": 50,
+        "passes": 50,
+        "pass_rate": 1.0,
+        "mean_in": 10385,
+        "mean_out": 5614,
+        "mean_lat": 14.56
+      },
+      "regex_match": {
+        "runs": 50,
+        "passes": 46,
+        "pass_rate": 0.92,
+        "mean_in": 11372,
+        "mean_out": 6416,
+        "mean_lat": 15.78
+      },
+      "min_window": {
+        "runs": 50,
+        "passes": 50,
+        "pass_rate": 1.0,
+        "mean_in": 11391,
+        "mean_out": 6355,
+        "mean_lat": 16.07
+      }
+    }
+  }
+}
