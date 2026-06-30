@@ -1,0 +1,74 @@
+[
+  {
+    "model": "glm-4.7",
+    "host": "baseten",
+    "n": 0,
+    "errors": 20,
+    "ttft_med": 0.0,
+    "lat_med": 0.0,
+    "tput_med": 0.0,
+    "out_tok": 0,
+    "inr": 0.0,
+    "usd": 0.0
+  },
+  {
+    "model": "glm-4.7",
+    "host": "zhipu",
+    "n": 0,
+    "errors": 20,
+    "ttft_med": 0.0,
+    "lat_med": 0.0,
+    "tput_med": 0.0,
+    "out_tok": 0,
+    "inr": 0.0,
+    "usd": 0.0
+  },
+  {
+    "model": "glm-4.7",
+    "host": "openrouter",
+    "n": 20,
+    "errors": 0,
+    "ttft_med": 12.047,
+    "lat_med": 12.05,
+    "tput_med": 700000000.0,
+    "out_tok": 776,
+    "inr": 0.1327,
+    "usd": 0.00138
+  },
+  {
+    "model": "glm-5.2",
+    "host": "baseten",
+    "n": 0,
+    "errors": 20,
+    "ttft_med": 0.0,
+    "lat_med": 0.0,
+    "tput_med": 0.0,
+    "out_tok": 0,
+    "inr": 0.0,
+    "usd": 0.0
+  },
+  {
+    "model": "glm-5.2",
+    "host": "zhipu",
+    "n": 20,
+    "errors": 0,
+    "ttft_med": 13.456,
+    "lat_med": 13.46,
+    "tput_med": 700000000.0,
+    "out_tok": 700,
+    "inr": 0.3046,
+    "usd": 0.00317
+  },
+  {
+    "model": "glm-5.2",
+    "host": "openrouter",
+    "n": 20,
+    "errors": 0,
+    "ttft_med": 3.9,
+    "lat_med": 4.05,
+    "tput_med": 700000000.0,
+    "out_tok": 700,
+    "inr": 0.3046,
+    "usd": 0.00317
+  }
+]

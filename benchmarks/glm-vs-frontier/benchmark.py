@@ -112,9 +112,15 @@ def call(leg, prompt):
         u = b.get("usage", {})
         return b["choices"][0]["message"]["content"], u.get("prompt_tokens", 0), u.get("completion_tokens", 0), lat
     body = {"model": leg, "max_tokens": 4000, "messages": msgs}
-    # Optional BYOK: route single-GLM legs via OpenRouter to dodge Zhipu's free-tier RPM cap.
     or_key = os.environ.get("OPENROUTER_KEY")
-    if or_key and leg in {"glm-4.6", "glm-4.5-air", "glm-4.7-flash"}:
+    # Single open-model legs pinned to their FAST host (Baseten) — the real model on a
+    # real serving host, no host handicap. All onboarded + slug-verified in the catalog.
+    BASETEN = {"glm-4.7", "glm-5.2", "glm-5", "gpt-oss-120b", "nemotron-super",
+               "nemotron-ultra", "kimi-k2.7-code", "kimi-k2.6", "kimi-k2.5", "deepseek-v4-pro"}
+    if leg in BASETEN:
+        body["provider"] = "baseten"
+    elif or_key and leg in {"glm-4.6", "glm-4.5-air", "glm-4.7-flash"}:
+        # Baseten doesn't serve these; route via OpenRouter BYOK (dodges Zhipu free-tier RPM cap).
         body["provider"] = "openrouter"
         body["upstream_key"] = or_key
     b, lat = post(f"{BR_BASE}/v1/chat/completions", {"Authorization": f"Bearer {BR_KEY}"}, body)
@@ -124,20 +130,25 @@ def call(leg, prompt):
 
 def run_once(leg, task):
     name, prompt, tests = task
-    delay = 5
-    for attempt in range(6):
+    # Backoff is env-tunable: a provider's per-model RPM (e.g. Baseten GLM-4.7) refills
+    # fast, so a SHORT backoff + MANY attempts saturates the real limit and never DROPS a
+    # call to a 429 (we have paid credits — retry through, don't give up).
+    start = float(os.environ.get("BACKOFF_START", "5"))
+    cap = float(os.environ.get("BACKOFF_CAP", "60"))
+    attempts = int(os.environ.get("MAX_ATTEMPTS", "6"))
+    delay = start
+    for attempt in range(attempts):
         try:
             txt, pt, ct, lat = call(leg, prompt)
             return {"task": name, "ok": score(txt, tests), "ptok": pt, "ctok": ct, "lat": lat}
         except urllib.error.HTTPError as e:
-            # Provider rate limit (e.g. Zhipu 429/1302): exponential backoff, then give up.
-            if e.code == 429 and attempt < 5:
-                time.sleep(delay); delay = min(delay * 2, 60); continue
-            if attempt < 5:
+            if e.code == 429 and attempt < attempts - 1:
+                time.sleep(delay); delay = min(delay * 2, cap); continue
+            if attempt < attempts - 1:
                 time.sleep(3); continue
             return {"task": name, "ok": False, "ptok": 0, "ctok": 0, "lat": 0.0, "err": f"HTTP {e.code}"}
         except Exception as e:
-            if attempt < 5:
+            if attempt < attempts - 1:
                 time.sleep(3); continue
             return {"task": name, "ok": False, "ptok": 0, "ctok": 0, "lat": 0.0, "err": str(e)[:90]}
 
@@ -173,6 +184,23 @@ def main():
                          "mean_in": round(mean([x["ptok"] for x in rs])),
                          "mean_out": round(mean([x["ctok"] for x in rs])),
                          "mean_lat": round(mean([x["lat"] for x in rs]), 2)}
+        # APPEND=1: ACCUMULATE this batch onto the leg's existing totals so N grows over time
+        # (run N=50 today, +N=50 next week -> N=100; Wilson CIs just tighten). Token/latency
+        # means are merged run-weighted. Lets us top up a blog's numbers without re-running.
+        if os.environ.get("APPEND") == "1" and leg in results:
+            prev = results[leg]
+            for name, cur in agg.items():
+                old = prev["tasks"].get(name)
+                if not old:
+                    continue
+                R = old["runs"] + cur["runs"]
+                cur["passes"] += old["passes"]
+                for k in ("mean_in", "mean_out", "mean_lat"):
+                    cur[k] = round((old[k] * old["runs"] + cur[k] * cur["runs"]) / R, 2 if k == "mean_lat" else 0)
+                cur["mean_in"], cur["mean_out"] = int(cur["mean_in"]), int(cur["mean_out"])
+                cur["runs"] = R
+                cur["pass_rate"] = round(cur["passes"] / R, 3)
+            tp += prev["tot_pass"]; tr += prev["tot_runs"]; errs += prev.get("errors", 0)
         results[leg] = {"taskset": TASKSET, "repeats": REPEATS, "n_tasks": len(TASKS),
                         "tot_pass": tp, "tot_runs": tr, "overall_pass_rate": round(tp / tr, 3), "errors": errs,
                         "mean_in_per_task": round(mean([t["mean_in"] for t in agg.values()])),
